@@ -15,7 +15,7 @@
         </servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>/WEB-INF/spring/core-conf.xml</param-value>
+            <param-value>classpath:spring/core-conf.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
