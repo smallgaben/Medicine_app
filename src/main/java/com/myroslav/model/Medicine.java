@@ -27,7 +27,7 @@ public class Medicine implements Serializable {
     @Column(name="name", unique = true, length = 300)
     private @Getter @Setter String name;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="company_id")
     private @Getter @Setter Company company;
 
