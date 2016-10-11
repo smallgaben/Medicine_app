@@ -7,6 +7,7 @@ import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,8 @@ import java.util.List;
 @Table(name="medicine")
 @ToString(exclude = {"components", "illnesses"})
 @EqualsAndHashCode(exclude = {"name","company","description","components","illnesses"})
-public class Medicine {
+public class Medicine implements Serializable {
+    private static final long serialVersionUID = -6909804790724006238L;
 
     @Id
     @GeneratedValue(generator = "uuid")
