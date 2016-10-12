@@ -19,6 +19,10 @@ public class MedicineDAOImplTest {
     private MedicineDAO medicineDAO;
 
     private static final String ID="63832943-7e41-435d-bc4b-a030b8c8f6f2";
+
+    /**
+     * Number of objects you can find in test_dump.sql
+     */
     private static final int TOTAL_OBJECTS=1;
 
     @Test

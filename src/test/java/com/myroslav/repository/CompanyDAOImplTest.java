@@ -10,11 +10,19 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * Testing class for <code>CompanyDAO</code> class, this class are pretty similar to <code>ComponentDAO, IllnessDAO</code>
+ * so this test is enough.
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/test-conf.xml"})
 public class CompanyDAOImplTest {
     private static final String ID="68831943-7e41-435d-bc4b-a030b8c8f6f2";
     private static final String COMPANY_NAME="Frais Luxury Products";
+
+    /**
+     * Number of objects you can find in test_dump.sql
+     */
     private static final int OCCURRENCES_COUNT =47;
     @Autowired
     private CompanyDAO companyDAO;
