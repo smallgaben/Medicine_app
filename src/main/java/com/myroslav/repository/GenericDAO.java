@@ -1,6 +1,7 @@
 package com.myroslav.repository;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 public interface GenericDAO<T extends Serializable> {
     T create(T model);
@@ -9,7 +10,7 @@ public interface GenericDAO<T extends Serializable> {
 
     T readByName(String name);
 
-    void update(T model);
+    Collection<T> readAll();
 
     void delete(String id);
 }
