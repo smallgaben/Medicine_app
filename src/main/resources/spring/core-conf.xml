@@ -31,5 +31,13 @@
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
 
+    <bean id="mapper" class="org.dozer.DozerBeanMapper">
+        <property name="mappingFiles">
+            <list>
+                <value>dozer/dozer.xml</value>
+            </list>
+        </property>
+    </bean>
+
     <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
 </beans>
