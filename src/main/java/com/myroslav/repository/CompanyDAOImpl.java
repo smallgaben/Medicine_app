@@ -10,6 +10,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Collection;
 
+import static org.hibernate.FetchMode.JOIN;
+import static org.hibernate.hql.internal.antlr.HqlTokenTypes.FETCH;
+
 @Repository
 @Transactional
 public class CompanyDAOImpl implements CompanyDAO{
@@ -33,7 +36,7 @@ public class CompanyDAOImpl implements CompanyDAO{
     }
 
     public Collection<Company> readAll() {
-        return entityManager.createQuery("select c from Company c", Company.class).getResultList();
+        return entityManager.createQuery("select c from Company c", Company.class).setHint("org.hibernate.readOnly", true).getResultList();
     }
 
     public void delete(String id) {
