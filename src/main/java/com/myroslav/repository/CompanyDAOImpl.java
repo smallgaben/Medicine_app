@@ -8,14 +8,17 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.JoinType;
+import javax.persistence.criteria.Root;
 import java.util.Collection;
 
 import static org.hibernate.FetchMode.JOIN;
 import static org.hibernate.hql.internal.antlr.HqlTokenTypes.FETCH;
 
 @Repository
-@Transactional
-public class CompanyDAOImpl implements CompanyDAO{
+public class CompanyDAOImpl implements CompanyDAO {
 
     @PersistenceContext
     private @Getter @Setter EntityManager entityManager;
@@ -26,12 +29,16 @@ public class CompanyDAOImpl implements CompanyDAO{
     }
 
     public Company readById(String id) {
-        return entityManager.find(Company.class, id);
+        return entityManager.createQuery("select c from Company c join fetch c.medicine m where c.id = :id", Company.class)
+                .setHint("org.hibernate.readOnly", true)
+                .setParameter("id", id)
+                .getSingleResult();
     }
 
     public Company readByName(String name) {
         return entityManager.createQuery("select c from Company c where c.name like :name", Company.class)
-                .setParameter("name",name)
+                .setHint("org.hibernate.readOnly", true)
+                .setParameter("name", name)
                 .getSingleResult();
     }
 

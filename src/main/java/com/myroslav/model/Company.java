@@ -1,5 +1,6 @@
 package com.myroslav.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @Entity
 @Table(name="company")
-@ToString
+@ToString(exclude = "medicine")
 @EqualsAndHashCode(exclude = {"name", "medicine"})
 public class Company implements Serializable{
     private static final long serialVersionUID = 4372722969943318684L;
@@ -28,5 +29,6 @@ public class Company implements Serializable{
     private @Getter @Setter String name;
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private @Getter @Setter List<Medicine> medicine=new ArrayList<Medicine>();
 }

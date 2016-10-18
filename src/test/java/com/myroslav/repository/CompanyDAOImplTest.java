@@ -2,6 +2,7 @@ package com.myroslav.repository;
 
 import com.myroslav.model.Company;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Testing class for <code>CompanyDAO</code> class, this class are pretty similar to <code>ComponentDAO, IllnessDAO</code>
  * so this test is enough.
  */
+@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/test-conf.xml"})
 public class CompanyDAOImplTest {
@@ -43,12 +45,14 @@ public class CompanyDAOImplTest {
     }
 
     @Test
+    @Transactional
     public void shouldReadCompanyObjectById() throws Exception {
         Company company = companyDAO.readById(ID);
         Assert.assertEquals(company.getName(),COMPANY_NAME);
     }
 
     @Test
+    @Transactional
     public void shouldReadCompanyObjectByName() throws Exception {
         Company company=companyDAO.readByName(COMPANY_NAME);
         Assert.assertEquals(ID, company.getId());

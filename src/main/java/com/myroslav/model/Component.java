@@ -13,7 +13,7 @@ import java.util.List;
 
 @Entity
 @Table(name="component")
-@ToString
+@ToString(exclude = "medicines")
 @EqualsAndHashCode(exclude = {"name","medicines"})
 public class Component implements Serializable{
     private static final long serialVersionUID = 1426633781527331306L;

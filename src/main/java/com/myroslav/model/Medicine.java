@@ -1,5 +1,6 @@
 package com.myroslav.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @Entity
 @Table(name="medicine")
-@ToString(exclude = {"components", "illnesses"})
+@ToString
 @EqualsAndHashCode(exclude = {"name","company","description","components","illnesses"})
 public class Medicine implements Serializable {
     private static final long serialVersionUID = -6909804790724006238L;
@@ -29,6 +30,7 @@ public class Medicine implements Serializable {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="company_id")
+    @JsonBackReference
     private @Getter @Setter Company company;
 
     @Column(name="description", length = 500)

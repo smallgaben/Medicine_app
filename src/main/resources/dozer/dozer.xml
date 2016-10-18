@@ -7,4 +7,8 @@
         <class-a>com.myroslav.model.Company</class-a>
         <class-b>com.myroslav.model.dto.LazyCompanyDTO</class-b>
     </mapping>
+    <mapping>
+        <class-a>com.myroslav.model.Company</class-a>
+        <class-b>com.myroslav.model.dto.CompanyDTO</class-b>
+    </mapping>
 </mappings>

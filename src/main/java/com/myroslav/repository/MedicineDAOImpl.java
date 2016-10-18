@@ -11,7 +11,6 @@ import javax.persistence.PersistenceContext;
 import java.util.Collection;
 
 @Repository
-@Transactional
 public class MedicineDAOImpl implements MedicineDAO {
 
     @PersistenceContext

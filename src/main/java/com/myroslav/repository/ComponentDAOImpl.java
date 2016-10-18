@@ -11,7 +11,6 @@ import javax.persistence.PersistenceContext;
 import java.util.Collection;
 
 @Repository
-@Transactional
 public class ComponentDAOImpl implements ComponentDAO{
     @PersistenceContext
     private @Getter @Setter EntityManager entityManager;
