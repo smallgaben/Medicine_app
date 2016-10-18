@@ -23,7 +23,7 @@ public class CompanyServiceImpl implements CompanyService {
     public List<LazyCompanyDTO> findAll() {
         Collection<Company> companies = companyDAO.readAll();
 
-        List<LazyCompanyDTO> lazyCompanyDTOs =new ArrayList<LazyCompanyDTO>();
+        List<LazyCompanyDTO> lazyCompanyDTOs =new ArrayList<LazyCompanyDTO>(companies.size());
 
         for(Company company: companies){
             lazyCompanyDTOs.add(mapper.map(company, LazyCompanyDTO.class));

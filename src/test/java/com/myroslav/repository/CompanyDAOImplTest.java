@@ -24,6 +24,7 @@ public class CompanyDAOImplTest {
      * Number of objects you can find in test_dump.sql
      */
     private static final int OCCURRENCES_COUNT =47;
+
     @Autowired
     private CompanyDAO companyDAO;
 
