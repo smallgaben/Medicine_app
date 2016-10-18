@@ -1,26 +1,26 @@
-DROP TABLE company;
-DROP TABLE component;
-DROP TABLE medicine;
-DROP TABLE illness;
 DROP TABLE medicine_component;
 DROP TABLE medicine_illness;
+DROP TABLE medicine;
+DROP TABLE company;
+DROP TABLE component;
+DROP TABLE illness;
 
 CREATE TABLE `company` (
   `id` varchar(100) NOT NULL,
   `name` varchar(300) NOT NULL UNIQUE,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `component` (
   `id` varchar(100) NOT NULL,
   `name` varchar(300) NOT NULL UNIQUE,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `illness` (
   `id` varchar(100) NOT NULL,
   `name` varchar(300) NOT NULL UNIQUE,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `medicine` (
