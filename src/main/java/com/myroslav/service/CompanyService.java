@@ -9,4 +9,8 @@ public interface CompanyService {
     List<LazyCompanyDTO> findAll();
 
     CompanyDTO findById(String id);
+
+    CompanyDTO findByName(String name);
+
+    void createCompany(CompanyDTO companyDTO);
 }

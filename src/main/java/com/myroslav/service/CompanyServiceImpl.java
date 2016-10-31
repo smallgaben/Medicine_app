@@ -39,4 +39,14 @@ public class CompanyServiceImpl implements CompanyService {
         Company company = companyDAO.readById(id);
         return mapper.map(company, CompanyDTO.class);
     }
+
+    public CompanyDTO findByName(String name) {
+        Company company= companyDAO.readByName(name);
+        return mapper.map(company, CompanyDTO.class);
+    }
+
+    public void createCompany(CompanyDTO companyDTO) {
+        Company company=mapper.map(companyDTO, Company.class);
+        companyDAO.create(company);
+    }
 }

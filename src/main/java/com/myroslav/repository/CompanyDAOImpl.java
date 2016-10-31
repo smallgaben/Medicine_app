@@ -29,7 +29,7 @@ public class CompanyDAOImpl implements CompanyDAO {
     }
 
     public Company readById(String id) {
-        return entityManager.createQuery("select c from Company c join fetch c.medicine m where c.id = :id", Company.class)
+        return entityManager.createQuery("select c from Company c where c.id = :id", Company.class)
                 .setHint("org.hibernate.readOnly", true)
                 .setParameter("id", id)
                 .getSingleResult();
